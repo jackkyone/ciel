@@ -1,0 +1,98 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.envelope {
+  text-align: center;
+  position: relative;
+  width: 700px;
+  height: 400px;
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  cursor: pointer;
+  transition: width 1s, height 1s;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.envelope h1 {
+  font-family: roboto, arial;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: pink;
+  padding-top: 100px;
+  margin-top: 100px;
+}
+
+#heart {
+  top: 47%;
+  position: relative;
+  margin: auto;
+  width: 100px;
+  height: 90px;
+  z-index: 998;
+}
+
+#heart:before,
+#heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: pink;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.paper {
+  position: absolute;
+  top: -150px;
+  left: 10px;
+  right: 10px;
+  width: calc(100% - 20px);
+  height: calc(180% - 20px);
+  background-color: rgb(238, 217, 220);
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 999;
+}
+
+.diagonal-line {
+  position: absolute;
+  width: 61%;
+  height: 1px;
+  background-color: #333;
+  transform-origin: 0 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s ease-in-out;
+}
+
+#line1 {
+  top: 0;
+  left: 0;
+  transform-origin: left bottom;
+  transform: scaleX(1) rotate(35deg);
+}
+
+#line2 {
+  top: 0;
+  right: 0;
+  transform-origin: right bottom;
+  transform: scaleX(1) rotate(-35deg);
+}
