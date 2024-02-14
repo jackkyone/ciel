@@ -7,3 +7,8 @@
   top: 10px;
   margin: auto;
 }
+
+.audio {
+  position: absolute;
+  top: 0;
+}

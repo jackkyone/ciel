@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const paper = document.getElementById("paper");
   const line1 = document.getElementById("line1");
   const line2 = document.getElementById("line2");
+  const audio = document.querySelector("audio");
   let clickCount = 0;
 
   envelope.addEventListener("click", function () {
@@ -11,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (clickCount % 2 !== 0) {
       enlargeEnvelope();
       openEnvelope();
+      // Start playing the audio
+      audio.play();
     } else {
       closeEnvelope();
     }
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function openEnvelope() {
     paper.style.opacity = 1;
-    paper.innerHTML = "<div class='content'></div>";
+    paper.innerHTML = "<div class='content'><img src='pic/letter.png'></div>";
     setLargePaper();
   }
 
@@ -31,11 +34,13 @@ document.addEventListener("DOMContentLoaded", function () {
     envelope.style.width = "700px";
     envelope.style.height = "400px";
     paper.style.opacity = 0;
+    // Pause the audio when closing the envelope
+    audio.pause();
   }
 
   function setLargePaper() {
     const content = document.querySelector(".content");
-    content.style.width = "400px"; // Adjust as needed
-    content.style.height = "300px"; // Adjust as needed
+    content.style.width = "100%";
+    content.style.height = "100%";
   }
 });
